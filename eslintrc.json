@@ -1,43 +1,77 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true
+      "es2021": true,
+      "node": true,
+      "jest": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+      "airbnb-base"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 13,
-        "sourceType": "module"
+      "ecmaVersion": 13,
+      "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "@typescript-eslint"
+      "@typescript-eslint",
+      "eslint-plugin-import-helpers"
     ],
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "react/prop-types": "off",
-        "react/react-in-jsx-scope": "off"
+      "no-restricted-syntax": "off",
+      "eslint-disable no-await-in-loop": "off",
+      "guard-for-in": "off",
+      "no-await-in-loop": "off",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          "selector": "interface",
+          "format": [
+            "PascalCase"
+          ],
+          "custom": {
+            "regex": "^I[A-Z]",
+            "match": true
+          }
+        }
+      ],
+      "camelcase": "off",
+      "no-shadow": "off",
+      "no-empty-function": "off",
+      "lines-between-class-members": "off",
+      "no-useless-constructor": "off",
+      "class-methods-use-this": "off",
+      "import/prefer-default-export": "off",
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "ts": "never"
+        }
+      ],
+      "import-helpers/order-imports": [
+        "warn",
+        {
+          "newlinesBetween": "always",
+          "groups": [
+            "/^express/",
+            "module",
+            "/^@shared/",
+            [
+              "parent",
+              "sibling",
+              "index"
+            ]
+          ],
+          "alphabetize": {
+            "order": "asc",
+            "ignoreCase": true
+          }
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
     }
-}
+  }
